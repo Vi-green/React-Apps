@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "greenco-db",
+  "private_key_id": "0690d0bc9976411b0d37b59c7008225858fba921",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQC0tYfn8DJPrYO6\nthLygRMHFH2Lc5ngYuQNMxroh1h4ao8n4M23CBE6acFht0eOWIE5mXrhveiOna2f\nzLTqo1L14thFgzCoQWJF7sK1opamoCkIH58+MgQbn39TiUyhDOJkSSczVl8CW3Rp\n+J6vf2IueqrV6dLKsIs4ZZxZC7yB+0dTZOZCf4GE3NQuy0ScviatYJGo7XNQoS4W\nlM7FAucFq2CwBBkaV5/MMbgsGyLk0jEtxBP+4TzAMsD1GH0eO3+LNsFZ7dV4RL4z\nLa2mlYbQsV6gTN4O6JFosDg3bcgpo9VRmTUXjtjebnUi1B/Y8ts8c3Xd3giQwR/L\noaX26WwjAgMBAAECgf85EBeRZpUIKCC1euStNnytAk+ksg4Uv0uOLcSz2U8mZsNs\ndiFTMzGLyxSXIJH37+elXtkuPt3UvyzJTGemInZQfzspABSmToJsjp6np1w9mFN2\nBStLQHEtfLqsi9wPecXIO/IsYo8tvjAt1kaNnRBrOXcklmyqZfvP5TuexR+BF/PV\n0qfQ9mrVBMogUbPpWLKiZlDDo3wspF+Z/ZRGX5laL6JMm2W490o5PKrTFQQp0FTh\n9eeWtUnmAMyCUTMwkPDbmhkKLWOr2Ww0sAkLgzPuYjxunf6t9ItSHLzqIl6wq7vB\nGkzxbTO+SvNcqZMTqqhRZM8GM+R+vpc6ta94dr0CgYEA5Sm0TGkvlG74Y8jhbVxR\n7ooc6WUCgaxkf8gOm+QxHaRCf3xxhw0vkMzB2w6ZoX6P3GkSrKnjpWoHnO3ZRKsa\nfm7kQt4+MKVl9tJdAJ0BWs8mPqeEeR3h5f1/VAvZc3TrWKNhAFlMmmDQ2urgvY9n\np4o5ehEQv2CMbmkCHj471g0CgYEAyd8u74Amcy+gJqG2TN7Ngdvs3C5/XDrR4Q34\nYH4eToWKPWzbx1qI14c5ELOSGvUouZn1U2czyfFH9Y+Wj7y4CMi83btXcl9t7d9f\nhGo193YMTY66ZrlOo+xWdVNwLTFnwOLLU9WQtJ2nLp7GelczZjRSSe8acTukB+1F\nusmfbu8CgYEAqTj5ri9Cdl7Xx3/Qj5xL2FVe8i6oAi/WatHFj/KbHmNsw42Wm/7t\nsASz5lpKsomuHDnvE1fFBiJdCtJMzbt4LgMfRg2taOjKedBv4wMNvAwaFsxHM9UQ\nOnDOdLbnVa3yGJtVBxfqTFnQAMjPOsvJ5FtbBDvT3S6jpOigKssUDoUCgYA8/UjY\n4wa61jC0ezbwkn/UM/WjsAiafMrcC7R2sqPFZWMWm8TqvdeKBjifayFBM8BSEsmj\noRJseJEdB3ydgI65WKx28RrCW0KDE3FwOAaF9QxSgkSetG2l6MlWORczEDIgfGSh\nt2w4pUjVNPMSEzZcMoKKA8shWrt8CZt/i1q30QKBgCeP6/JvdaVSXG1rIOkS8XB6\n5UE1MieSZ513YkDPEV75ZZ+68jJPwMIikjYWxZKdaUfVqtreJIsAZj7S5N+55KmZ\nLzLZBBnmMeQsxBaJvY8DmU/QTcPMGAue0PkD6ZktZ1Zyzon7p3XqAeqy0dehcdyu\nngKnOX8TYwp440XQNP3g\n-----END PRIVATE KEY-----\n",
+  "client_email": "vicquery@greenco-db.iam.gserviceaccount.com",
+  "client_id": "111071184405707972420",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vicquery%40greenco-db.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
