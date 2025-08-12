@@ -9,7 +9,7 @@ app.use(express.json());
 
 const bigquery = new BigQuery();
 
-process.env.GOOGLE_APPLICATION_CREDENTIALS = 'C:/Users/vic_f/OneDrive/Escritorio/React Apps/form/greenco-db-0690d0bc9976.json';
+process.env.GOOGLE_APPLICATION_CREDENTIALS = 'form/greenco-db-0690d0bc9976.json';
 
 /*fechas disponibles*/
 app.get('/dates', async (req, res) => {
@@ -51,3 +51,7 @@ app.get('/times', async (req, res) => {
 const PORT = 3000
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)
+
+export default function handler(req, res) {
+  res.status(200).json({ message: 'Hello from backend!' });
+}
