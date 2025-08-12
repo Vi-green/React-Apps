@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const {BigQuery} = require('@google-cloud/bigquery');
 const cors = require('cors');
 const app = express();
@@ -10,7 +10,7 @@ const bigquery = new BigQuery();
 process.env.GOOGLE_APPLICATION_CREDENTIALS = 'form/greenco-db-0690d0bc9976.json';
 
 
-/*fechas disponibles
+fechas disponibles
 app.get('/dates', async (req, res) => {
   try {
     const query = `
