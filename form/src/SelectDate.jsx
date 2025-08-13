@@ -10,7 +10,7 @@ const SelectDate = ({onSelect}) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/dates")
+    axios.get("http://localhost:3000/api/dates")
       .then((res) => {
         setData(res.data);
         setLoading(false);

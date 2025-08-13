@@ -51,6 +51,8 @@ const PORT = 3000
 app.listen(PORT)
 console.log(`Server running on port ${PORT}`)*/
 
-export default function handler(req, res) {
-  res.status(200).json({ message: 'Hello from backend!' });
+export async function GET(request) {
+  const response = await fetch('https://api.vercel.app/products');
+  const products = await response.json();
+  return Response.json(products);
 }
