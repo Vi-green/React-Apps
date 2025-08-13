@@ -8,17 +8,26 @@ const bigquery = new BigQuery({
   credentials
 });
 
-export async function GET() {
+
+
+export default async function handler(req, res) {
+  if (req.method !== 'GET') {
+    res.setHeader('Allow', ['GET']);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
+
   try {
     const query = `
-           SELECT distinct(date)
+      SELECT DISTINCT(date)
       FROM \`greenco-db.API_CALLS.turnosDisponiblesSecos\`
     `;
+
     const [rows] = await bigquery.query({ query, location: 'US' });
-    return Response.json(rows);
+
+    // Return the rows as JSON
+    res.status(200).json(rows);
   } catch (err) {
     console.error('ERROR:', err);
-    return new Response('Error querying BigQuery', { status: 500 });
+    res.status(500).json({ error: 'Error querying BigQuery' });
   }
 }
-

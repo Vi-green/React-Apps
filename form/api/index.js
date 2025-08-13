@@ -49,10 +49,11 @@ app.get('/times', async (req, res) => {
 
 const PORT = 3000
 app.listen(PORT)
-console.log(`Server running on port ${PORT}`)*/
-
+console.log(`Server running on port ${PORT}`)
+}*/
 export async function GET(request) {
   const response = await fetch('https://api.vercel.app/products');
   const products = await response.json();
   return Response.json(products);
+
 }
