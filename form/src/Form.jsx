@@ -4,38 +4,95 @@ import SelectTime from './SelectTime'
 
 
 
-
 function Form() {
 
-  const [selectedParam, setSelectedParam] = useState(null);
+ /*Armamos los parametros para los props que vienen desde día y hora*/ 
+  const [selectedParam, setSelectedParam] = useState(null); 
+  const [selectedTime, setSelectedTime] = useState(null)
+/*Seteamos la forma inicial del JSON*/ 
+  const[formData, setFormData] = useState({name:'',
+    cuit:'',
+    email:'',
+    date:'',
+    time:'',
+    oc:''
+  });
+  
+ /*Manejamos los cambios de cada input */
+ 
+  const handleChange = (e) =>{
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+}
+;
+/*maneja los cambios del Date child */
+const handleChildChange = (val) => {
+setSelectedParam(val);
+    setFormData((prev) => ({
+      ...prev,
+      date: val
+    }));
+  };
+/*maneja los cambios del Time child */
+  const handleTimeChange = (val) =>{
+    setSelectedTime(val);
+        setFormData((prev) => ({
+      ...prev,
+      time: val
+    }))
+  } 
 
+/*On submit:
+
+mandar un async request a gcp
+mandar un mail
+resetear el form
+generar un conditional rendering a una pagina con la información del form que permita un nuevo turno.
+
+*/
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formData);
+
+  };
+/*El form*/
   return (
     <>
       
-<form id="bookingForm">
-      <label>
+<form id="bookingForm"   onSubmit={handleSubmit}>
+<label>     
         Razón Social:
-        <input type="text" name="name"  id = "name" required />
+        <input type="text" name="name"  id = "name" value={formData.name} onChange = {handleChange} required />
       </label>
 <p></p>
+
         <label>
         CUIT:
-        <input type="text" name="cuit"  id = "cuit" required placeholder = "xx-xxxxxxxx-x" maxlength ="13" minlength= "13" pattern = "\d\d-\d\d\d\d\d\d\d\d-\d"/>
+        <input type="text" name="cuit"  value={formData.cuit} onChange= {handleChange} id = "cuit" required placeholder = "xx-xxxxxxxx-x" maxLength ="13" minLength= "13" pattern = "\d\d-\d\d\d\d\d\d\d\d-\d"/>
       </label>
 <p></p>
       <label>
         Email:
-        <input type="email" name="email" id= "email" required />
+        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required />
       </label>
 <p></p>
-<SelectDate onSelect={setSelectedParam}/>
+<label>Ordenes de Compra a entregar:
+  <input type= "textarea" id="textbox" name="oc" rows="4" cols="50" value={formData.oc} onChange= {handleChange} required />
+  </label>
+
 <p></p>
-<SelectTime param= {selectedParam}/>
+<SelectDate onSelect={handleChildChange} value={formData.date}/>
+<p></p>
+<SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.time}/>
 <p></p>
 
-<label>Ordenes de Compra a entregar:
-  <input type= "textarea" id="textbox" name="textbox" rows="4" cols="50" required />
-  </label>
+
+ <button type="submit" value="Reservar turno" id="button"> Reservar Turno</button>
+
       </form>
 
     </>

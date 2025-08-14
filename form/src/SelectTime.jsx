@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 
 
-const SelectTime= ({param}) => { 
+const SelectTime= ({param, onSelect}) => { 
 
 
 const [data, setData] = useState();
@@ -11,7 +11,7 @@ const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!param) return;
-    axios.get(`https://react-apps-alpha-five.vercel.app/api/times?param=${param}`)
+    axios.get(/*`https://react-apps-alpha-five.vercel.app/api/times?param=${param}`*/`http://localhost:3000/api/times?param=${param}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -21,6 +21,11 @@ const [error, setError] = useState(null);
         setLoading(false);
       });
   }, [param]);
+
+   const handleChange = (e)=> {
+    const value = e.target.value;
+    onSelect(value);
+  }
  
   if (!param) return       <label>
         Seleccionar Hora:  
@@ -45,7 +50,7 @@ const [error, setError] = useState(null);
   return (
           <label>
         Seleccionar Hora:
-        <select id="timeSelect" name="time" required>
+        <select id="timeSelect" name="time" required onChange={handleChange}>
           <option value="">--Elige un horario--</option>
 {
           data.map((row, i) => (
