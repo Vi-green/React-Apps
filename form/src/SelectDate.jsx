@@ -10,7 +10,7 @@ const SelectDate = ({onSelect}) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get(/*"https://react-apps-alpha-five.vercel.app/api/dates"*/ "http://localhost:3000/api/dates")
+    axios.get("https://react-apps-alpha-five.vercel.app/api/dates" /*"http://localhost:3000/api/dates"*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);
