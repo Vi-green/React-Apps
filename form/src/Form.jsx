@@ -49,9 +49,6 @@ setSelectedParam(val);
 
 mandar un async request a gcp
 mandar un mail
-resetear el form
-generar un conditional rendering a una pagina con la información del form que permita un nuevo turno.
-
 */
   const handleSubmit = (e) => {
     e.preventDefault();
