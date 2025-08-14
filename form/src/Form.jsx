@@ -4,7 +4,7 @@ import SelectTime from './SelectTime'
 
 
 
-function Form() {
+function Form({onSubmit}) {
 
  /*Armamos los parametros para los props que vienen desde día y hora*/ 
   const [selectedParam, setSelectedParam] = useState(null); 
@@ -55,8 +55,9 @@ generar un conditional rendering a una pagina con la información del form que p
 */
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    
     console.log(formData);
+    onSubmit(formData);
 
   };
 /*El form*/
@@ -77,7 +78,7 @@ generar un conditional rendering a una pagina con la información del form que p
 <p></p>
       <label>
         Email:
-        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required />
+        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required pattern ="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"  />
       </label>
 <p></p>
 <label>Ordenes de Compra a entregar:
