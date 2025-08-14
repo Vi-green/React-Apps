@@ -11,7 +11,7 @@ const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!param) return;
-    axios.get(/*`https://react-apps-alpha-five.vercel.app/api/times?param=${param}`*/`http://localhost:3000/api/times?param=${param}`)
+    axios.get(`https://react-apps-alpha-five.vercel.app/api/times?param=${param}`/*`http://localhost:3000/api/times?param=${param}`*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);
