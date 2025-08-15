@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import SelectDate from './SelectDate'
 import SelectTime from './SelectTime'
-
+import axios from "axios";
 
 
 function Form({onSubmit}) {
@@ -10,15 +10,16 @@ function Form({onSubmit}) {
   const [selectedParam, setSelectedParam] = useState(null); 
   const [selectedTime, setSelectedTime] = useState(null)
 /*Seteamos la forma inicial del JSON*/ 
-  const[formData, setFormData] = useState({name:'',
+  const[formData, setFormData] = useState({
+    razon_social:'',
     cuit:'',
     email:'',
-    date:'',
-    time:'',
-    oc:'',
-    depo: "4 de Febrero 360 - San Martín"
+    dia:'',
+    hora:'',
+    ocs:''
   });
   
+
  /*Manejamos los cambios de cada input */
  
   const handleChange = (e) =>{
@@ -34,7 +35,7 @@ const handleChildChange = (val) => {
 setSelectedParam(val);
     setFormData((prev) => ({
       ...prev,
-      date: val
+      dia: val
     }));
   };
 /*maneja los cambios del Time child */
@@ -42,7 +43,7 @@ setSelectedParam(val);
     setSelectedTime(val);
         setFormData((prev) => ({
       ...prev,
-      time: val
+      hora: val
     }))
   } 
 
@@ -51,13 +52,19 @@ setSelectedParam(val);
 mandar un async request a gcp
 mandar un mail
 */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log(formData);
+        console.log(formData);
     onSubmit(formData);
-
+    try {
+      const res = await axios.post("http://localhost:3000/api/insert", formData);
+      console.log(res.data.message);
+    } catch (err) {
+      console.error("Insert failed:", err);
+    }
   };
+
+
 /*El form*/
   return (
     <>
@@ -66,7 +73,7 @@ mandar un mail
 <form id="bookingForm"   onSubmit={handleSubmit}>
 <label>     
         Razón Social:
-        <input type="text" name="name"  id = "name" value={formData.name} onChange = {handleChange} required />
+        <input type="text" name="razon_social"  id = "razon_social" value={formData.razon_social} onChange = {handleChange} required />
       </label>
 <p></p>
 
@@ -77,18 +84,18 @@ mandar un mail
 <p></p>
       <label>
         Email:
-        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required pattern ="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"  />
+        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required />
       </label>
 <p></p>
 <label>Ordenes de Compra a entregar:
-  <input type= "textarea" id="textbox" name="oc" rows="4" cols="50" value={formData.oc} onChange= {handleChange} required />
+  <input type= "textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange= {handleChange} required />
   </label>
 <p></p>
 
 <p></p>
-<SelectDate onSelect={handleChildChange} value={formData.date}/>
+<SelectDate onSelect={handleChildChange} value={formData.dia}/>
 <p></p>
-<SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.time}/>
+<SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.hora}/>
 <p></p>
 
 

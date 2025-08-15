@@ -77,7 +77,7 @@ mandar un mail
 <p></p>
       <label>
         Email:
-        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required pattern ="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"  />
+        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required />
       </label>
 <p></p>
 <label>Ordenes de Compra a entregar:
