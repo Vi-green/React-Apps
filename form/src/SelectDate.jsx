@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 
-const SelectDate = ({onSelect}) => { 
+const SelectDate = ({ onSelect }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -21,41 +21,39 @@ const SelectDate = ({onSelect}) => {
       });
   }, []);
 
-  const handleChange = (e)=> {
+  const handleChange = (e) => {
     const value = e.target.value;
     onSelect(value);
   }
 
   if (loading) return <label>
-        Seleccionar fecha:
-        <p></p>
-        <select id="dateSelect" name="date" required>
-          <option value="">-- Cargando Fechas --</option>
-     </select>
-      </label>;
+    Seleccionar fecha:
+    <p></p>
+    <select id="dateSelect" name="date" required>
+      <option value="">-- Cargando Fechas --</option>
+    </select>
+  </label>;
   if (error) return <label>
-        Seleccionar fecha:
-        <p></p>
-        <select id="dateSelect" name="date" required>
-          <option value="">-- Error Cargando Fechas --</option>
-     </select>
-      </label>;
+    Seleccionar fecha:
+    <p></p>
+    <select id="dateSelect" name="date" required>
+      <option value="">-- Error Cargando Fechas --</option>
+    </select>
+  </label>;
   return (
-          <label>
-        Seleccionar fecha:
-        <p></p>
-        <select id="dateSelect" name="date" required onChange={handleChange} >
-          <option value="">--Por favor, Seleccione una Fecha--</option>
-          {
+    <label>
+      Seleccionar fecha:
+      <p></p>
+      <select id="dateSelect" name="date" required onChange={handleChange} >
+        <option value="">--Por favor, Seleccione una Fecha--</option>
+        {
           data.map((row, i) => (
-           <option key={i}>
-            {row.date.value}</option> 
-        ))}
-        
-        
-        </select>
-      </label>
-)
+            <option key={i}>
+              {row.date.value}</option>
+          ))}
+      </select>
+    </label>
+  )
 }
 
 export default SelectDate 
