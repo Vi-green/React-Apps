@@ -4,7 +4,7 @@ import SelectTime from './SelectTime'
 
 
 
-function Form({onSubmit}) {
+function FormC({onSubmit}) {
 
  /*Armamos los parametros para los props que vienen desde día y hora*/ 
   const [selectedParam, setSelectedParam] = useState(null); 
@@ -60,7 +60,7 @@ mandar un mail
 /*El form*/
   return (
     <>
-<h3>Depósito de Secos - 4 de Febrero</h3>
+<h3>Depósito de Refrigerados, Congelados y Chocolates - Sargento Cabral</h3>
       <p></p>
 <form id="bookingForm"   onSubmit={handleSubmit}>
 <label>     
@@ -82,13 +82,13 @@ mandar un mail
 <label>Ordenes de Compra a entregar:
   <input type= "textarea" id="textbox" name="oc" rows="4" cols="50" value={formData.oc} onChange= {handleChange} required />
   </label>
-<p></p>
+<p></p> 
 
-<p></p>
+{/*<p></p>
 <SelectDate onSelect={handleChildChange} value={formData.date}/>
 <p></p>
 <SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.time}/>
-<p></p>
+<p></p>*/}
 
 
  <button type="submit" value="Reservar turno" id="button"> Reservar Turno</button>
@@ -99,4 +99,4 @@ mandar un mail
   )
 }
 
-export default Form
+export default FormC

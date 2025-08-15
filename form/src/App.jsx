@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import './App.css'
 import Header from  './Header.jsx'  
 import Form from './Form.jsx'
+import FormC from './FormC.jsx'
 import Response from'./Response.jsx'
 import Logo from './Logo.jsx'
-
-
 
 const App = () => {
 const [conditional, setConditional] = useState(true); 
 const [formData, setFormData] = useState(null)
+const [val, setVal] = useState(null)
   
 
 const handleFormSubmit = (data) =>{
   setFormData(data);
-  setConditional(false)
+  setConditional(false);
+  setVal(null);
 }
 
 const handleClick = (e)=> {
@@ -22,14 +23,30 @@ const handleClick = (e)=> {
     setConditional(value);
   }
 
+  const handleChange = (e)=> {
+    e.preventDefault();
+    const value = e.target.value;
+    setVal(value);
+    console.log(value);
+  }
   
 
 if(conditional)
   return (
     <>
-    <Header />
-    <Form onSubmit={handleFormSubmit} />
-    <Response />
+    <Header/>
+    <label>
+        Seleccionar Depósito:
+        <select id="depoSelect" name="depo" onChange={handleChange} required>
+          <option value="">--Seleccione un deposito --</option>
+          <option value={(true)}>Depósito Secos (4 de Febrero)</option>
+          <option value={(false)}>Depósito Refrigerado-Congelado-Chocolates (Sgto. Cabral)</option>
+     </select>
+      </label>
+
+
+   {val == "true" && <Form onSubmit={handleFormSubmit} />}
+   {val == "false" && <FormC />}
     <Logo />
     </>
   );
