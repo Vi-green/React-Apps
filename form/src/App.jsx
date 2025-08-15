@@ -46,7 +46,7 @@ if(conditional)
 
 
    {val == "true" && <Form onSubmit={handleFormSubmit} />}
-   {val == "false" && <FormC />}
+   {val == "false" && <FormC onSubmit={handleFormSubmit} />}
     <Logo />
     </>
   );
@@ -55,7 +55,7 @@ if(conditional)
       <div>
 <h1> Tu turno ha sido agendado {formData.name} !
 </h1>
-<h3>Te esperamos el {formData.date} a las {formData.time} en 4 de Febrero 3640 - San Martín  </h3>
+<h3>Te esperamos el {formData.date} a las {formData.time} en {formData.depo}  </h3>
 <h4>Muchas gracias por usar nuestro sistema. </h4>
   <p></p>
   <h4>En caso de querer cancelar tu turno, comunicarse con nuestro departamento de Compras</h4>

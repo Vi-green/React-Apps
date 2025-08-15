@@ -15,7 +15,8 @@ function Form({onSubmit}) {
     email:'',
     date:'',
     time:'',
-    oc:''
+    oc:'',
+    depo: "4 de Febrero 360 - San Martín"
   });
   
  /*Manejamos los cambios de cada input */

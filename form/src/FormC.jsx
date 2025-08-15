@@ -15,7 +15,8 @@ function FormC({onSubmit}) {
     email:'',
     date:'',
     time:'',
-    oc:''
+    oc:'',
+    depo: "Sargento Cabral 1130 - San Martín "
   });
   
  /*Manejamos los cambios de cada input */
