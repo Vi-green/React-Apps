@@ -37,6 +37,7 @@ if(conditional)
     <Header/>
     <label>
         Seleccionar Depósito:
+      <p></p>  
         <select id="depoSelect" name="depo" onChange={handleChange} required>
           <option value="">--Seleccione un depósito --</option>
           <option value={(true)}>Depósito Secos (4 de Febrero)</option>
@@ -60,7 +61,7 @@ if(conditional)
   <p></p>
   <h4>En caso de querer cancelar tu turno, comunicarse con nuestro departamento de Compras</h4>
   <button onClick={handleClick} value={(true)}> Sacar otro turno </button>
-  <p></p>
+  
   <Logo />
       </div>
 

@@ -28,12 +28,14 @@ const SelectDate = ({onSelect}) => {
 
   if (loading) return <label>
         Seleccionar fecha:
+        <p></p>
         <select id="dateSelect" name="date" required>
           <option value="">-- Cargando Fechas --</option>
      </select>
       </label>;
   if (error) return <label>
         Seleccionar fecha:
+        <p></p>
         <select id="dateSelect" name="date" required>
           <option value="">-- Error Cargando Fechas --</option>
      </select>
@@ -41,8 +43,9 @@ const SelectDate = ({onSelect}) => {
   return (
           <label>
         Seleccionar fecha:
+        <p></p>
         <select id="dateSelect" name="date" required onChange={handleChange} >
-          <option value="">--Seleccionar Fecha--</option>
+          <option value="">--Por favor, Seleccione una Fecha--</option>
           {
           data.map((row, i) => (
            <option key={i}>

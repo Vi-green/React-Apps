@@ -11,7 +11,7 @@ const [error, setError] = useState(null);
 
   useEffect(() => {
     if (!param) return;
-    axios.get(`https://portal.greenco.com.ar/api/times?param=${param}` /*`http://localhost:3000/api/times?param=${param}`*/)
+    axios.get(`https://portal.greenco.com.ar/api/times?param=${param}`/* `http://localhost:3000/api/times?param=${param}`*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -28,14 +28,16 @@ const [error, setError] = useState(null);
   }
  
   if (!param) return       <label>
-        Seleccionar Hora:  
+        Seleccionar Hora: 
+        <p></p> 
         <select id="timeSelect" name="time" required>
-          <option value="">-- Por favor, seleccione una fecha --</option>
+          <option value="">-- Por favor, Seleccione un Horario --</option>
      </select>
       </label>;
 
     if (loading) return <label>
         Seleccionar Hora:
+        <p></p>
         <select id="timeSelect" name="time" required>
           <option value="">-- Cargando Horarios --</option>
      </select>
@@ -50,6 +52,7 @@ const [error, setError] = useState(null);
   return (
           <label>
         Seleccionar Hora:
+        <p></p>
         <select id="timeSelect" name="time" required onChange={handleChange}>
           <option value="">--Elige un horario--</option>
 {

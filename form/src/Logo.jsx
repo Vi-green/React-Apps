@@ -6,7 +6,7 @@ function Logo() {
     <>
       <div>
 <p></p>
-  <img src="https://greenco.com.ar/assets/images/logo/logo_black.png" alt="Logo de Greenco"></img>
+  <img src="https://www.greenco.com.ar/assets/images/logo/logo_greenCO.svg" alt="Logo de Greenco"></img>
       </div>
 
     </>
