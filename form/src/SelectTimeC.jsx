@@ -39,7 +39,7 @@ const SelectTime = ({ param, onSelect }) => {
     Seleccionar Hora:
     <p></p>
     <select id="timeSelect" name="time" required>
-      <option value="">-- Cargando Horarios --</option>
+      <option value="">-- Cargando Horarios Disponibles --</option>
     </select>
   </label>;
   if (error) return <label>

@@ -61,14 +61,15 @@ function FormC({ onSubmit }) {
       console.log(res.data.message);
     } catch (err) {
       console.error("Insert failed:", err);
-    }
+    };
+
   };
 
 
   /*El form*/
   return (
     <>
-      <h3>Depósito de Secos - 4 de Febrero</h3>
+      <h3>Depósito de Refrigerados, Congelados y Chocolates - Sargento Cabral</h3>
       <p></p>
       <form id="bookingForm" onSubmit={handleSubmit}>
         <label>

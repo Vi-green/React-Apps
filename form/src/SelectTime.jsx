@@ -11,7 +11,7 @@ const SelectTime = ({ param, onSelect }) => {
 
   useEffect(() => {
     if (!param) return;
-    axios.get(`https://portal.greenco.com.ar/api/times?param=${param}`  /*`http://localhost:3000/api/times?param=${param}`*/)
+    axios.get(`https://portal.greenco.com.ar/api/times?param=${param}` /* `http://localhost:3000/api/times?param=${param}`*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -39,7 +39,7 @@ const SelectTime = ({ param, onSelect }) => {
     Seleccionar Hora:
     <p></p>
     <select id="timeSelect" name="time" required>
-      <option value="">-- Cargando Horarios --</option>
+      <option value="">-- Cargando Horarios Disponibles --</option>
     </select>
   </label>;
   if (error) return <label>
