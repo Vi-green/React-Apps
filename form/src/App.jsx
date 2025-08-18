@@ -61,7 +61,7 @@ const App = () => {
       <p></p>
       <h4>Muchas gracias por usar nuestro sistema. </h4>
       <p></p>
-      <h4>En caso de querer cancelar tu turno, comunicarse con nuestro departamento de Compras.</h4>
+      <h4>En caso de querer cancelar su turno, por favor comunicarse con nuestro departamento de Compras.</h4>
       <button onClick={handleClick} value={(true)}> Sacar otro turno </button>
       <Logo />
     </div>

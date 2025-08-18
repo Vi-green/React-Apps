@@ -1,101 +1,102 @@
 import React, { useState } from 'react'
-import SelectDate from './SelectDate'
-import SelectTime from './SelectTime'
+import SelectDateC from './SelectDateC'
+import SelectTimeC from './SelectTimeC'
+import axios from "axios";
 
 
+function FormC({ onSubmit }) {
 
-function FormC({onSubmit}) {
-
- /*Armamos los parametros para los props que vienen desde día y hora*/ 
-  const [selectedParam, setSelectedParam] = useState(null); 
+  /*Armamos los parametros para los props que vienen desde día y hora*/
+  const [selectedParam, setSelectedParam] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null)
-/*Seteamos la forma inicial del JSON*/ 
-  const[formData, setFormData] = useState({name:'',
-    cuit:'',
-    email:'',
-    date:'',
-    time:'',
-    oc:'',
-    depo: "Sargento Cabral 1130 - San Martín "
+  /*Seteamos la forma inicial del JSON*/
+  const [formData, setFormData] = useState({
+    razon_social: '',
+    cuit: '',
+    email: '',
+    dia: '',
+    hora: '',
+    ocs: ''
   });
-  
- /*Manejamos los cambios de cada input */
- 
-  const handleChange = (e) =>{
+
+
+  /*Manejamos los cambios de cada input */
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
-}
-;
-/*maneja los cambios del Date child */
-const handleChildChange = (val) => {
-setSelectedParam(val);
+  }
+    ;
+  /*maneja los cambios del Date child */
+  const handleChildChange = (val) => {
+    setSelectedParam(val);
     setFormData((prev) => ({
       ...prev,
-      date: val
+      dia: val
     }));
   };
-/*maneja los cambios del Time child */
-  const handleTimeChange = (val) =>{
+  /*maneja los cambios del Time child */
+  const handleTimeChange = (val) => {
     setSelectedTime(val);
-        setFormData((prev) => ({
+    setFormData((prev) => ({
       ...prev,
-      time: val
+      hora: val
     }))
-  } 
+  }
 
-/*On submit:
-
-mandar un async request a gcp
-mandar un mail
-*/
-  const handleSubmit = (e) => {
+  /*On submit:
+  
+  mandar un async request a gcp
+  mandar un mail
+  */
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
     console.log(formData);
     onSubmit(formData);
-
+    try {
+      const res = await axios.post("https://portal.greenco.com.ar/api/insertC"/*"http://localhost:3000/api/insertC"*/, formData);
+      console.log(res.data.message);
+    } catch (err) {
+      console.error("Insert failed:", err);
+    }
   };
-/*El form*/
+
+
+  /*El form*/
   return (
     <>
-<h3>Depósito de Refrigerados, Congelados y Chocolates - Sargento Cabral</h3>
+      <h3>Depósito de Secos - 4 de Febrero</h3>
       <p></p>
-<form id="bookingForm"   onSubmit={handleSubmit}>
-<label>     
-        Razón Social:
-        <input type="text" name="name"  id = "name" value={formData.name} onChange = {handleChange} required />
-      </label>
-<p></p>
-
+      <form id="bookingForm" onSubmit={handleSubmit}>
         <label>
-        CUIT:
-        <input type="text" name="cuit"  value={formData.cuit} onChange= {handleChange} id = "cuit" required placeholder = "xx-xxxxxxxx-x" maxLength ="13" minLength= "13" pattern = "\d\d-\d\d\d\d\d\d\d\d-\d"/>
-      </label>
-<p></p>
-      <label>
-        Email:
-        <input type="email" name="email" id= "email" value={formData.email} onChange = {handleChange} required />
-      </label>
-<p></p>
-<label>Ordenes de Compra a entregar:
-  <input type= "textarea" id="textbox" name="oc" rows="4" cols="50" value={formData.oc} onChange= {handleChange} required />
-  </label>
-<p></p> 
-
-{/*<p></p>
-<SelectDate onSelect={handleChildChange} value={formData.date}/>
-<p></p>
-<SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.time}/>
-<p></p>*/}
-
-
- <button type="submit" value="Reservar turno" id="button"> Reservar Turno</button>
-
+          Razón Social:
+          <input type="text" name="razon_social" id="razon_social" value={formData.razon_social} onChange={handleChange} required />
+        </label>
+        <p></p>
+        <label>
+          CUIT:
+          <input type="text" name="cuit" value={formData.cuit} onChange={handleChange} id="cuit" required placeholder="xx-xxxxxxxx-x" maxLength="13" minLength="13" pattern="\d\d-\d\d\d\d\d\d\d\d-\d" />
+        </label>
+        <p></p>
+        <label>
+          Email:
+          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
+        </label>
+        <p></p>
+        <label>Ordenes de Compra a entregar:
+          <input type="textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange={handleChange} required />
+        </label>
+        <p></p>
+        <p></p>
+        <SelectDateC onSelect={handleChildChange} value={formData.dia} />
+        <p></p>
+        <SelectTimeC param={selectedParam} onSelect={handleTimeChange} value={formData.hora} />
+        <p></p>
+        <button type="submit" value="Reservar turno" id="button"> Reservar Turno</button>
       </form>
-
     </>
   )
 }
