@@ -4,7 +4,28 @@ import axios from "axios";
 const credentials = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON);
 const API_KEY = "tdan8ex2a9d6u4rvsedrggiw43gnes"
 
+
+const allowedOrigins = [
+  "https://www.portal.greenco.com.ar",
+  "https://portal.greenco.com.ar",
+  "http://localhost:3000" // 👈 for local dev (Vite default)
+];
+
+
 export default async function handler(req, res) {
+   const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // ✅ Handle preflight request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }

@@ -9,7 +9,27 @@ const bigquery = new BigQuery({
 });
 
 
+const allowedOrigins = [
+  "https://www.portal.greenco.com.ar",
+  "https://portal.greenco.com.ar",
+  "http://localhost:3000" // 👈 for local dev (Vite default)
+];
+
+
 export default async function handler(req, res) {
+  
+   const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+
+  // ✅ Handle preflight request
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+  
   if (req.method !== 'GET') {
     res.setHeader('Allow', ['GET']);
     return res.status(405).end(`Method ${req.method} Not Allowed`);
