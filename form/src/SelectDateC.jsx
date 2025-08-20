@@ -10,7 +10,7 @@ const SelectDate = ({ onSelect }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios.get("https://portal.greenco.com.ar/api/datesC" /*"http://localhost:3000/api/datesC"*/)
+    axios.get("https://www.portal.greenco.com.ar/api/datesC" /*"http://localhost:3000/api/datesC"*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);
