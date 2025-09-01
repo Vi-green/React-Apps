@@ -8,9 +8,10 @@ const SelectDate = ({ onSelect }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [filter, setFilter] = useState('')
 
   useEffect(() => {
-    axios.get("https://portal.greenco.com.ar/api/dates" /*"http://localhost:3000/api/dates"*/)
+    axios.get("https://portal.greenco.com.ar/api/dates" /*"http://localhost:3001/api/dates"*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);

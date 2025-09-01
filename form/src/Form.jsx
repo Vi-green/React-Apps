@@ -54,10 +54,9 @@ function Form({ onSubmit }) {
   */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
     onSubmit(formData);
     try {
-      const res = await axios.post("https://portal.greenco.com.ar/api/insert"/*"http://localhost:3000/api/insert"*/, formData);
+      const res = await axios.post("https://portal.greenco.com.ar/api/insert"/*"http://localhost:3001/api/insert"*/, formData);
       console.log(res.data.message);
     } catch (err) {
       console.error("Insert failed:", err);
