@@ -46,7 +46,7 @@ const App = () => {
           <p></p>
           <select id="depoSelect" name="depo" onChange={handleChange} required>
             <option value="">--Seleccione un depósito --</option>
-            <option value={(true)}>Depósito Secos (4 de Febrero)</option>
+            <option value={(true)}>Depósito Secos-Cosmética (4 de Febrero)</option>
             <option value={(false)}>Depósito Refrigerado-Congelado-Chocolates (Sgto. Cabral)</option>
           </select>
         </label>
