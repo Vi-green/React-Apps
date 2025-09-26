@@ -16,7 +16,8 @@ function Form({ onSubmit }) {
     email: '',
     dia: '',
     hora: '',
-    ocs: ''
+    ocs: '',
+    status:'Turno agendado'
   });
 
 
@@ -81,12 +82,12 @@ function Form({ onSubmit }) {
         </label>
         <p></p>
         <label>
-          Email:
-          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required />
+          Email (recibirás notificaciones a este mail):
+          <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder= "nombre@host.com" required />
         </label>
         <p></p>
         <label>Ordenes de Compra a entregar:
-          <input type="textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange={handleChange} required />
+          <input pattern="[0-9,]*" type="textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange={handleChange} placeholder="solo numeros separados por comas" required />
         </label>
         <p></p>
         <p></p>

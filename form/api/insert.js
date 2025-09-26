@@ -62,7 +62,9 @@ export default async function handler(req, res) {
     <p> Te esperamos en 4 de Febrero 3640 - San Martín - Buenos Aires para entregar:</p>
     <p> ${formData.ocs}</p>
 
-    <p>En caso de querer cancelar o modificar tu turno, por favor ponte en contacto con nuestro Departamento de Compras. </p>
+    <p>En caso de querer cancelar o modificar tu turno, por favor ponte en contacto con nosotros
+    a nuestro mail: recepciones@greenco.com.ar
+   </p> 
 
     <p>¡Gracias por usar nuestro sistema!</p>`,
       recipients: [

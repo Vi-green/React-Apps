@@ -68,7 +68,7 @@ const App = () => {
       <p></p>
       <h4>Muchas gracias por usar nuestro sistema. </h4>
       <p></p>
-      <h4>En caso de querer cancelar su turno, por favor comunicarse con nuestro departamento de Compras.</h4>
+      <h4>En caso de querer cancelar su turno, por favor comunicarse con nuestro departamento de Compras o con Recepciones a recepciones@greenco.com.ar .</h4>
 
       <nav className="container">
       
