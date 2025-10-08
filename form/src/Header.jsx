@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <div>
-        <h1>Agendá tu turno con Greenco</h1>
+        <h1>Agendá tu turno en Green & Co.</h1>
         <p></p>
       </div>
     </>

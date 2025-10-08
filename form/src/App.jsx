@@ -39,46 +39,48 @@ const App = () => {
 
   if (conditional)
     return (
-      <>
+      <div className='containerMax'>
         <Header />
-        <label>
-          Seleccionar Depósito:
           <p></p>
           <select id="depoSelect" name="depo" onChange={handleChange} required>
-            <option value="">--Seleccione un depósito --</option>
+            <option value="">Seleccioná el depósito </option>
             <option value={(true)}>Depósito Secos-Cosmética (4 de Febrero)</option>
             <option value={(false)}>Depósito Refrigerado-Congelado-Chocolates (Sgto. Cabral)</option>
           </select>
-        </label>
+       
         {val == "true" && <Form onSubmit={handleFormSubmit} />}
         {val == "false" && <FormC onSubmit={handleFormSubmit} />}
+        
         <Logo />
-      </>
+      </div>
     );
 
   return (
-    <div>
-      <h1> Tu turno ha sido agendado {formData.name} !
+    <div className='containerMax'>
+      <h1> ¡Turno confirmado!
       </h1>
-      <h3>&#9989; Día: {formData.dia} </h3>
+      <h3>&#9989; Día  {formData.dia} </h3>
       <p></p>
-      <h3>&#9989; Hora: {hora.substring(0,5)} </h3> 
+      <h3>&#9989; Hora {hora.substring(0,5)} </h3> 
       <p></p>
-      <h3>&#9989; Depósito: {val == "true" ? "4 de Febrero 3640 - San Martín" : "Sargento Cabral 1130 - San Martín"}  </h3>
+      <h3>&#9989; Depósito: {val == "true" ? "Depósito 4 de Febrero 3640 - San Martín" : "Depósito Sargento Cabral 1130 - San Martín"}  </h3>
       <p></p>
-      <h4>Muchas gracias por usar nuestro sistema. </h4>
+      <h4>Gracias por organizar tu entrega con nosotros. &#128154; </h4>
+      <h4>En Green & Co. valoramos tu tiempo y trabajamos para que cada recepción sea ágil y ordenada.</h4>
       <p></p>
-      <h4>En caso de querer cancelar su turno, por favor comunicarse con nuestro departamento de Compras o con Recepciones a recepciones@greenco.com.ar .</h4>
+      <h4>Si necesitás cancelar o modificar tu turno, comunicate con:</h4>
+      <h4>&#128231; recepciones@greenco.com.ar o con el departamento de Compras.
+</h4>
 
       <nav className="container">
       
-      <div className="item"><button onClick={handleClick} value={(true)}> Sacar otro turno </button> </div> 
+      <div className="item"><button onClick={handleClick} value={(true)}> &#128197; Quiero sacar otro turno </button> </div> 
       
       <div className="item"><AddToCalendarButton 
       name="Turno - Greenco"
       startDate={`${formData.dia}`}  
-      styleLight="--btn-background: #28ad0d; --btn-text: #fff; --font: system-ui, Avenir, Helvetica, Arial, sans-serif;"
-      styleDark="--btn-background: #000;"
+      styleLight="--btn-background: #4e8850; --btn-text: #e0e6d7; --font:Montserrat,Helvetica Neue, Helvetica, Arial, sans-serif; --font-weight:600; "
+      styleDark="--btn-background: #36464a;"
       options={['Apple','Google','Yahoo','Microsoft365', 'MicrosoftTeams', 'Outlook.com']} 
       label="Agregar al Calendario">
       </AddToCalendarButton></div> 
@@ -90,6 +92,7 @@ const App = () => {
 
       <Logo />
     </div>
+    
   )
 }
 

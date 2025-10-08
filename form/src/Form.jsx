@@ -68,34 +68,34 @@ function Form({ onSubmit }) {
   /*El form*/
   return (
     <>
-      <h3>Depósito de Secos - 4 de Febrero</h3>
+      <h3>Secos  (4 de Febrero)</h3>
       <p></p>
       <form id="bookingForm" onSubmit={handleSubmit}>
         <label>
-          Razón Social:
+          Razón Social</label>
           <input type="text" name="razon_social" id="razon_social" value={formData.razon_social} onChange={handleChange} required />
-        </label>
+        
         <p></p>
         <label>
-          CUIT:
+          CUIT</label>
           <input type="text" name="cuit" value={formData.cuit} onChange={handleChange} id="cuit" required placeholder="xx-xxxxxxxx-x" maxLength="13" minLength="13" pattern="\d\d-\d\d\d\d\d\d\d\d-\d" />
-        </label>
+        
         <p></p>
         <label>
-          Email (recibirás notificaciones a este mail):
+          Email (acá recibirás tus notificaciones)</label>
           <input type="email" name="email" id="email" value={formData.email} onChange={handleChange} placeholder= "nombre@host.com" required />
-        </label>
+        
         <p></p>
-        <label>Ordenes de Compra a entregar:
+        <label>Ordenes de Compra a entregar</label>
           <input pattern="[0-9,]*" type="textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange={handleChange} placeholder="solo numeros separados por comas" required />
-        </label>
+        
         <p></p>
         <p></p>
         <SelectDate onSelect={handleChildChange} value={formData.dia} />
         <p></p>
         <SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.hora} />
         <p></p>
-        <button type="submit" value="Reservar turno" id="button"> Reservar Turno</button>
+        <button type="submit" value="Reservar turno" id="button"> Reservá tu turno</button>
       </form>
     </>
   )

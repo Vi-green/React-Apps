@@ -1,9 +1,9 @@
 #root {
-  max-width: 1000px;
-  margin: 100px ;
-  margin-top:10px;
-  padding-left: 0px;
-  text-align: center
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+
+
 }
 
 .logo {
@@ -42,5 +42,40 @@
   color: #000000;
 }
 
+.container {
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 0em auto;
+  background-color: #fff;
+  border-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  /* Optional: Add space between items */
+  gap: 20px; 
+  /* Optional: Align items vertically */
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+}
 
+.containerMax {
+  max-width: 38em;
+  padding: 1em 3em 2em 3em;
+  margin: 0em auto;
+  background-color: #fff;
+  border-radius: 4.2px;
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+  /* Optional: Add space between items */
+  gap: 20px; 
+  /* Optional: Align items vertically */
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;}
 
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}

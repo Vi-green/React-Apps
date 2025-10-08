@@ -4,15 +4,29 @@
 *:after {
   box-sizing: border-box;
 }
+
+
 body {
   padding: 1em;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family:   "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
-  color: #000000;
-  background-color: #ffffff;
+  color: #36464A;
+  background: linear-gradient(to bottom, #46724e, #27382a);
+
+
+   margin: 25px;
+   margin-top:25px;
+   margin-bottom:15px;
+
+  height: 150vh;
+
+  display: flex;
+
 }
+
+
 h4 {
-  color: #000000;
+  color: #36464A;
 }
 input,
 input[type="radio"] + label,
@@ -22,8 +36,8 @@ select {
   width: 100%;
   padding: 8px;
   line-height: 1.4;
-  background-color: #ffffff;
-  border: 1px solid #e5e5e5;
+  background: color #e0e6d7;;
+  border: 1px solid #e0e6d7;
   border-radius: 3px;
   -webkit-transition: 0.35s ease-in-out;
   -moz-transition: 0.35s ease-in-out;
@@ -33,13 +47,13 @@ select {
 }
 input:focus {
   outline: 0;
-  border-color: #30d10f;
+  border-color: #4e8850;
 }
 input:focus + .input-icon i {
-  color: #000000;
+  color: #36464A;
 }
 input:focus + .input-icon:after {
-  border-right-color: #000000;
+  border-right-color: #36464A;
 }
 input[type="radio"] {
   display: none;
@@ -47,7 +61,7 @@ input[type="radio"] {
 input[type="radio"] + label,
 select {
   display: inline-block;
-  width: 50%;
+  width: 100%;
   text-align: center;
   float: none;
   border-radius: 0;
@@ -67,9 +81,9 @@ input[type="radio"]:checked + label,
 input:checked + label:before,
 select:focus,
 select:active {
-  background-color: #ffffff;
-  color: #000000;
-  border-color: #30d10f;
+  background-color: #e0e6d7;
+  color: #36464A;
+  border-color: #4e8850;
 }
 input[type="checkbox"] {
   display: none;
@@ -94,7 +108,7 @@ input[type="checkbox"] + label:after {
   top: 0.45em;
   left: 0.2em;
   font-size: 0.8em;
-  color: #000000;
+  color: #36464A;
   opacity: 0;
   font-family: FontAwesome;
   content: "\f00c";
@@ -156,7 +170,7 @@ select option {
   bottom: 0.6em;
   left: 3.4em;
   display: block;
-  border-right: 1px solid #e5e5e5;
+  border-right: 1px solid #e0e6d7;
   content: "";
   -webkit-transition: 0.35s ease-in-out;
   -moz-transition: 0.35s ease-in-out;
@@ -175,7 +189,7 @@ select option {
   max-width: 38em;
   padding: 1em 3em 2em 3em;
   margin: 0em auto;
-  background-color: #fff;
+  background-color: #e0e6d7;
   border-radius: 4.2px;
   box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -226,15 +240,15 @@ select option {
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight:600;
   font-family: inherit;
-  background-color: #28ad0d;
+  background-color: #4e8850;
   color:#ffffff;
   cursor: pointer;
   transition: border-color 0.25s
 }
 button:hover {
-  border-color: #000000;
+  border-color: #36464A;
 }
 button:focus,
 button:focus-visible {
@@ -245,4 +259,8 @@ img {
   height: 100px;
   width: 300px;
   padding: 20px;
+}
+
+.date{
+  align-self: left;
 }

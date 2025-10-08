@@ -27,34 +27,37 @@ const SelectTime = ({ param, onSelect }) => {
     onSelect(value);
   }
 
-  if (!param) return <label>
-    Seleccionar Hora:
-    <p></p>
+  if (!param) return 
+  <div>
+  <label>
+    Seleccioná hora</label>
+    
     <select id="timeSelect" name="time" required>
-      <option value="">-- Por favor, primero seleccione una Fecha --</option>
+      <option value=""> Primero seleccioná una fecha </option>
     </select>
-  </label>;
+  </div>;
 
-  if (loading) return <label>
-    Seleccionar Hora:
-    <p></p>
+  if (loading) return
+  <div> <label>
+    Seleccioná hora</label>
+    
     <select id="timeSelect" name="time" required>
-      <option value="">-- Cargando Horarios Disponibles --</option>
+      <option value="">Cargando horarios disponibles</option>
     </select>
-  </label>;
-  if (error) return <label>
-    Seleccionar Hora:
+  </div>;
+  if (error) return <div><label>
+    Seleccioná hora</label>
     <select id="timeSelect" name="time" required>
-      <option value="">-- Error Cargando Horarios --</option>
+      <option value="">Error cargando horarios </option>
     </select>
-  </label>;
+  </div>;
 
   return (
+    <div>
     <label>
-      Seleccionar Hora:
-      <p></p>
+      Seleccioná hora </label>
       <select id="timeSelect" name="time" required onChange={handleChange}>
-        <option value="">--Elige un horario--</option>
+        <option value=""></option>
         {
           data.map((row, i) => (
             <option key={i}>
@@ -63,7 +66,7 @@ const SelectTime = ({ param, onSelect }) => {
 
 
       </select>
-    </label>
+   </div>
   )
 }
 

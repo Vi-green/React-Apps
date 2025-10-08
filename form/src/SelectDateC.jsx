@@ -26,33 +26,38 @@ const SelectDate = ({ onSelect }) => {
     onSelect(value);
   }
 
-  if (loading) return <label>
-    Seleccionar fecha:
-    <p></p>
+  if (loading) return 
+  <div>
+  <label>
+    Seleccioná fecha</label>
+    
     <select id="dateSelect" name="date" required>
-      <option value="">-- Cargando Fechas --</option>
+      <option value=""> Cargando fechas </option>
     </select>
-  </label>;
-  if (error) return <label>
-    Seleccionar fecha:
-    <p></p>
+  </div>;
+  if (error) return
+  <div>
+  <label>
+    Seleccioná fecha</label>
+  
     <select id="dateSelect" name="date" required>
-      <option value="">-- Error Cargando Fechas --</option>
+      <option value=""> Error cargando fechas </option>
     </select>
-  </label>;
+  </div>;
   return (
+    <div>
     <label>
-      Seleccionar fecha:
-      <p></p>
+      Seleccioná fecha</label>
+    
       <select id="dateSelect" name="date" required onChange={handleChange} >
-        <option value="">--Por favor, Seleccione una Fecha--</option>
+        <option value=""></option>
         {
           data.map((row, i) => (
             <option key={i}>
               {row.date.value}</option>
           ))}
       </select>
-    </label>
+    </div>
   )
 }
 
