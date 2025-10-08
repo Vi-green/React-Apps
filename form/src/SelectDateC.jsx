@@ -12,8 +12,17 @@ const SelectDate = ({ onSelect }) => {
   useEffect(() => {
     axios.get("https://portal.greenco.com.ar/api/datesC" /*"http://localhost:3000/api/datesC"*/)
       .then((res) => {
-        setData(res.data);
-        setLoading(false);
+ const formatted = res.data.map(item => {
+    const rawDate = item.date?.value; // safely get the string like "2025-10-09"
+    const formattedDate = new Date(rawDate).toISOString().split("T")[0]; // "YYYY-MM-DD"
+
+    return {
+      ...item,
+      date: formattedDate // replace nested date object with a simple string
+    };
+  });
+  setData(formatted);
+  setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
@@ -54,7 +63,7 @@ const SelectDate = ({ onSelect }) => {
         {
           data.map((row, i) => (
             <option key={i}>
-              {row.date.value}</option>
+              {row.date}</option>
           ))}
       </select>
     </div>
