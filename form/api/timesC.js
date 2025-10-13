@@ -47,7 +47,7 @@ export default async function handler(req, res) {
     const query = `
       SELECT time
       FROM \`greenco-db.API_CALLS.turnosDisponiblesCabral\`
-    WHERE date = FORMAT_DATE( "YYYY-MM-DD", DATE'${param}')
+    WHERE date = '${param}'
     `;
   const [rows] = await bigquery.query({ query, location: "US" });
     res.json(rows);
@@ -56,6 +56,5 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Error querying BigQuery' });
   }
 }
-
 
 

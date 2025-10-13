@@ -38,6 +38,7 @@ export default async function handler(req, res) {
 
   try {
        const param = req.query.param;
+       console.log(param);
 
     if (!param) {
       return res.status(400).json({ error: 'param is required' });
@@ -45,15 +46,15 @@ export default async function handler(req, res) {
     const query = `
       SELECT time
       FROM \`greenco-db.API_CALLS.turnosDisponiblesSecos\`
-    WHERE date = FORMAT_DATE( "YYYY-MM-DD", DATE'${param}')
+    WHERE date = '${param}'
     `;
   const [rows] = await bigquery.query({ query, location: "US" });
     res.json(rows);
   } catch (err) {
+    console.error("Error in /api/times:", err);
     console.error('ERROR:', err);
     res.status(500).json({ error: 'Error querying BigQuery' });
   }
 }
-
 
 
