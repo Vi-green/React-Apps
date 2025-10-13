@@ -37,7 +37,7 @@ export default async function handler(req, res) {
   }
 
   try {
-       const param = req.query.param;
+       const param = req.query.formattedParam;
 
     if (!param) {
       return res.status(400).json({ error: 'param is required' });
@@ -45,7 +45,7 @@ export default async function handler(req, res) {
     const query = `
       SELECT time
       FROM \`greenco-db.API_CALLS.turnosDisponiblesSecos\`
-    WHERE date = '${param}'
+    WHERE date = FORMAT_DATE( "YYYY-MM-DD", DATE'${param}')
     `;
   const [rows] = await bigquery.query({ query, location: "US" });
     res.json(rows);

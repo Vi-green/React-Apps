@@ -11,7 +11,8 @@ const SelectTime = ({ param, onSelect }) => {
 
   useEffect(() => {
     if (!param) return;
-    axios.get(`https://portal.greenco.com.ar/api/times?param=${param}`  /*`http://localhost:3001/api/times?param=${param}`*/)
+    const formattedParam = new Date(param).toISOString().split("T")[0];
+    axios.get(`https://portal.greenco.com.ar/api/times?param=${formattedParam}`  /*`http://localhost:3001/api/times?param=${param}`*/)
       .then((res) => {
         setData(res.data);
         setLoading(false);

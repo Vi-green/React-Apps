@@ -8,14 +8,15 @@ const SelectDate = ({ onSelect }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [filter, setFilter] = useState('')
+ 
 
   useEffect(() => {
     axios.get("https://portal.greenco.com.ar/api/dates" /*"http://localhost:3001/api/dates"*/)
  .then((res) => {
   const formatted = res.data.map(item => {
     const rawDate = item.date?.value; // safely get the string like "2025-10-09"
-    const formattedDate = new Date(rawDate).toISOString().split("T")[0]; // "YYYY-MM-DD"
+    const formattedDate = new Date(rawDate).toISOString().split("T")[0];
+     // "YYYY-MM-DD"
 
     return {
       ...item,
