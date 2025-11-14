@@ -73,6 +73,11 @@ export default async function handler(req, res) {
           name: formData.razon_social || "",
           type: "to",
         },
+        {
+          email: "recepciones@greenco.com.ar",
+          name: formData.razon_social || "",
+          type: "to",
+        },
       ],
       skip_track_opens: true,
       skip_track_clicks: true,
