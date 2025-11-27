@@ -91,9 +91,9 @@ function Form({ onSubmit }) {
         
         <p></p>
         <p></p>
-        <SelectDate onSelect={handleChildChange} value={formData.dia} />
+        <SelectDate onSelect={handleChildChange} value={formData.dia} required/>
         <p></p>
-        <SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.hora} />
+        <SelectTime param={selectedParam} onSelect={handleTimeChange} value={formData.hora} required />
         <p></p>
         <button type="submit" value="Reservar turno" id="button"> Reservá tu turno</button>
       </form>
