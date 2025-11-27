@@ -93,9 +93,9 @@ function FormC({ onSubmit }) {
         
         <p></p>
         <p></p>
-        <SelectDateC onSelect={handleChildChange} value={formData.dia} />
+        <SelectDateC onSelect={handleChildChange} value={formData.dia} required />
         <p></p>
-        <SelectTimeC param={selectedParam} onSelect={handleTimeChange} value={formData.hora} />
+        <SelectTimeC param={selectedParam} onSelect={handleTimeChange} value={formData.hora} required />
         <p></p>
         <button type="submit" value="Reservar turno" id="button"> Reservá tu turno</button>
       </form>
