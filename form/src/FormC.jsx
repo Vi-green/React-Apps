@@ -89,7 +89,7 @@ function FormC({ onSubmit }) {
        
         <p></p>
         <label>Ordenes de Compra a entregar</label>
-          <input pattern="[0-9,]*" type="textarea" id="textbox" name="ocs" rows="4" cols="50" value={formData.ocs} onChange={handleChange} placeholder="solo numeros separados por comas" required />
+          <input pattern="[0-9,]*" type="textarea" id="textbox" name="ocs" rows="4" cols="50" minLength="5" value={formData.ocs} onChange={handleChange} placeholder="solo numeros separados por comas" required />
         
         <p></p>
         <p></p>
