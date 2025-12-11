@@ -39,6 +39,7 @@ export default async function handler(req, res) {
     const query = `
       SELECT DISTINCT(date)
       FROM \`greenco-db.API_CALLS.turnosDisponiblesCabral\`
+      ORDER BY date 
     `;
 
     const [rows] = await bigquery.query({ query, location: 'US' });
